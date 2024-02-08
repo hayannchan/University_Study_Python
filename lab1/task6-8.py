@@ -7,3 +7,9 @@ def f1(string):
         if c in range_char("А","я"): k += 1
     return k
 
+def f2(string):
+    r = []
+    for c in range_char("a", "z"):
+        if string.find(c) != -1: r.append(c)
+    return len(r)
+
