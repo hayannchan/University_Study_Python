@@ -22,3 +22,41 @@ def func4(l):
         else: l2.append(l[i])
     return l1 + l2
 
+def func5(l):
+    l1 = []
+    l2 = []
+    for i in l:
+        if i not in l1: 
+            l1.append(i)
+            l2.append(1)
+        else:
+            l2[l1.index(i)] += 1
+    return l1 + l2
+
+num = input("Enter task number: ")
+while True:
+    if (num not in ["0","1","2","3","4"]): 
+        num = input("Enter task number: ")
+    else: break
+
+if num in ["2","3","4"]:
+    l = []
+    s = input()
+    l.append(int(s))
+    while s != "": 
+        s = input()
+        if (s != ""): l.append(int(s))
+    if num == "2": print(func3(l))
+    elif num == "3": print(func4(l))
+    else: print(func5(l))
+    exit()
+elif num in ["0","1"]:
+    l = []
+    s = input()
+    l.append(int(s))
+    while s != "": 
+        s = input()
+        if (s != ""): l.append(int(s))
+    i = input()
+    if num == "0": print(func1(l, int(i)))
+    else: print(func2(l, int(i)))
