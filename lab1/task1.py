@@ -20,3 +20,21 @@ def func2(num):
         num = int(num / 10)
     return r
 
+def func3(num):
+    r1 = 1
+    for i in range(2,num + 1):
+        if num % i == 0 and not isPrime(i) and i % 2 == 1: r1 = i
+    r2 = 1
+    while num:
+        r2 *= num % 10
+        num = int(num / 10)
+    l1 = []
+    for i in range(1, r1 + 1):
+        if r1 % i == 0: l1.append(i)
+    l2 = []
+    for i in range(1, r2 + 1):
+        if r2 % i == 0: l2.append(i)
+    r = 1
+    for i in l1:
+        if i in l2 and i > r: r = i
+    return r
