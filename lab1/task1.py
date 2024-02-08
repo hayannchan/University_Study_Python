@@ -12,3 +12,11 @@ def func1(num):
         if num % i == 0 and isPrime(i): r = i
     return r
 
+def func2(num):
+    r = 0
+    while num:
+        if (num % 10) % 5 != 0:
+            r *= num % 10
+        num = int(num / 10)
+    return r
+
