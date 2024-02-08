@@ -66,3 +66,43 @@ def sort3(l):
         return k
     return sorted(l, key=keyFunc)
 
+def sort4(l):
+    n = len(l)
+    lines = l
+    symbols_freqs = {}
+
+    for line in lines:
+        for symb in line:
+            if symb in symbols_freqs:
+                symbols_freqs[symb] += 1
+            else:
+                symbols_freqs[symb] = 1
+    freqs = list(symbols_freqs.values())
+    symbols = list(symbols_freqs.keys())
+    mx = [max(freqs) / n, symbols[freqs.index(max(freqs))]]
+    # print(mx)
+
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            # sqrt((xi - x)^2) = abs(xi - x)
+            if abs(lines[i].count(mx[1]) - mx[0]) > abs(lines[j].count(mx[1]) - mx[0]):
+                lines[i], lines[j] = lines[j], lines[i]
+    return lines
+
+num = input("Enter task number: ")
+while True:
+    if (num not in ["0","1","2","3"]): 
+        num = input("Enter task number: ")
+    else: break
+
+l = []
+s = input()
+l.append(s)
+while s != "": 
+    s = input()
+    if (s != ""): l.append(s)
+
+if num == "0": print(sort1(l))
+elif num == "1": print(sort2(l))
+elif num == "2": print(sort3(l))
+else: print(sort4(l))
