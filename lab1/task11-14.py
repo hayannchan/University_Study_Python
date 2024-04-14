@@ -12,6 +12,7 @@ def sort1(l):
         if maxChar in range_char("A", "z"): return (maxCount / len(string)) - (1 / 26)
         elif maxChar in range_char("А", "я"): return (maxCount / len(string)) - (1 / 33)
         else: return maxCount / len(string)
+    return sorted(l, key=keyFunc)
 
 freq = {
     "a": 0.0817,
@@ -45,16 +46,14 @@ freq = {
 def sort2(l):
     def keyFunc(string):
         string = string.lower()
-        maxChar = string[0]
+        maxChar = string[0] #значение первого символа в строке
         maxCount = 0
         for c in string:
-            if maxCount < string.count(c): 
+            if maxCount < string.count(c): #текущее макс колво меньше колва символов с то новый самый часто встречаемый это с
                 maxChar = c
                 maxCount = string.count(c)
         r = freq[maxChar]
-        print(r)
         return (maxCount / len(string) - r) ** 2
-    
     return sorted(l, key=keyFunc)
 
 def sort3(l):

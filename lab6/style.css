@@ -1,0 +1,15 @@
+td {
+    border: 2px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    max-height: 150px;
+    overflow: auto;
+    display: block;
+    width: fit-content;
+    margin: 10px 0;
+    border: 1px solid black;
+}
+

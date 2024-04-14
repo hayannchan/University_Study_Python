@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Version {{ version.id_v }} details</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Version id: {{ version.id_v }}</h1>
+
+    <p><strong>Software:</strong> <a href="{% url 'software-detail' version.soft_name_id %}">{{ version.soft_name }}</a></p>
+    <p><strong>Name:</strong> {{ version.version }}</p>
+    <p><strong>Software:</strong> {{ version.soft_name }}</p>
+    <form style="display: inline" action="{% url 'version-update' version.id_v %}" method="get">
+        <button>Update version</button>
+    </form><br><br>
+    <form style="display: inline" action="{% url 'version-delete' version.id_v %}" method="get">
+        <button>Delete version</button>
+    </form>
+  </body>
+</html>

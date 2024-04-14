@@ -31,7 +31,7 @@ def func5(l):
             l2.append(1)
         else:
             l2[l1.index(i)] += 1
-    return l1 + l2
+    return [l1, l2]
 
 num = input("Enter task number: ")
 while True:

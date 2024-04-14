@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Software {{ software.id_s }} details</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <h1>Software id: {{ software.id_s }}</h1>
+
+    
+    <p><strong>Name:</strong> {{ software.name }}</p>
+    <p><strong>Developer:</strong> {{ software.developer }}</p>
+    <form style="display: inline" action="{% url 'software-update' software.id_s %}" method="get">
+        <button>Update software</button>
+    </form><br><br>
+    <form style="display: inline" action="{% url 'software-delete' software.id_s %}" method="get">
+        <button>Delete software</button>
+    </form>
+  </body>
+</html>

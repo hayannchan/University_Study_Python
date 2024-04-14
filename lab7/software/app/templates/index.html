@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Software</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Add additional CSS in static file -->
+    <!-- {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" /> -->
+  </head>
+  <body>
+    <h3>Num of versions: {{ num_versions }}</h3><br>
+    <h3>Versions:</h3>
+    <table>
+      <thead>
+          <tr>
+            <td>Version ID</td>
+            <td>Name</td>
+            <td>Software</td>
+          </tr>
+      </thead>
+      <tbody>
+          {% for version in versions %}
+            <tr>
+              <td>{{ version.id_v }}</td>
+              <td><a href="{% url 'version-detail' version.id_v %}">{{ version.version }}</a></td>
+              <td><a href="{% url 'software-detail' version.soft_name_id %}">{{ version.soft_name }}</a></td>
+            </tr>
+          {% endfor %}
+      </tbody>
+      </table><br>
+      <form style="display: inline" action="{% url 'version-create' %}" method="get">
+        <button>Create version</button>
+      </form>
+      <form style="display: inline" action="{% url 'software-create' %}" method="get">
+        <button>Create software</button>
+      </form>
+  </body>
+</html>

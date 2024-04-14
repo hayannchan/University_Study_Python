@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title>Software DB</title>
+    <script src="script.js" defer></script>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <button type="button" id="outputButton">Output</button>
+    <div id="outputTableDiv"></div>
+    <form action="cgi-bin/form_corporation.py">
+        <input name="co_name" placeholder="Corporation name">
+        <input name="co_year" placeholder="Creation year" type="number">
+        <input type="submit" value="Add to database">
+    </form>
+    <form action="cgi-bin/form_software.py">
+        <input name="soft_name" placeholder="Software name">
+        <input name="soft_developer" placeholder="Developer id" type="number">
+        <input type="submit" value="Add to database">
+    </form>
+    <form action="cgi-bin/form_version.py">
+        <input name="ver_name" placeholder="Version name">
+        <input name="ver_soft_name" placeholder="Software id" type="number">
+        <input type="submit" value="Add to database">
+    </form>
+    <form action="/cgi-bin/export.py">
+        <input name="table" placeholder="Table">
+        <input type="submit" value="Export table to XML">
+    </form>
+    <form action="/cgi-bin/import.py">
+        <textarea name="xml" rows=10 cols=40>
+Write your table in XML format.
+        </textarea><br>
+        <input type="submit" value="Import table from XML">
+    </form>
+</body>

@@ -1,4 +1,4 @@
-def isPrime(num):
+def is_prime(num):
     f = True
     for i in range(2,num):
         if num % i == 0: 
@@ -9,11 +9,11 @@ def isPrime(num):
 def func1(num):
     r = 1
     for i in range(2,num + 1):
-        if num % i == 0 and isPrime(i): r = i
+        if num % i == 0 and is_prime(i): r = i
     return r
 
 def func2(num):
-    r = 0
+    r = 1
     while num:
         if (num % 10) % 5 != 0:
             r *= num % 10
@@ -23,7 +23,7 @@ def func2(num):
 def func3(num):
     r1 = 1
     for i in range(2,num + 1):
-        if num % i == 0 and not isPrime(i) and i % 2 == 1: r1 = i
+        if num % i == 0 and not is_prime(i) and i % 2 == 1: r1 = i
     r2 = 1
     while num:
         r2 *= num % 10
